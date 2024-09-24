@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { poppins } from "~/utils/fonts";
 import { cn } from "~/utils/helpers";
+import TanstackQueryProvider from "~/providers/tanstack-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(poppins.variable, `antialiased`)}>{children}</body>
+      <body className={cn(poppins.variable, `antialiased`)}>
+        <TanstackQueryProvider>{children}</TanstackQueryProvider>
+      </body>
     </html>
   );
 }
